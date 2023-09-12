@@ -43,6 +43,8 @@ type Query {
     product(id: ID, slug: String): Product
     "Get a list of Products"
     products(options: ProductListOptions): ProductList!
+    "Get a list of Promotions"
+    promotions(options: PromotionListOptions): PromotionList!
     "Search Products based on the criteria set by the `SearchInput`"
     search(input: SearchInput!): SearchResponse!
 }
@@ -199,8 +201,16 @@ union AddPaymentToOrderResult =
     | OrderStateTransitionError
     | NoActiveOrderError
 union TransitionOrderToStateResult = Order | OrderStateTransitionError
-union SetCustomerForOrderResult = Order | AlreadyLoggedInError | EmailAddressConflictError | NoActiveOrderError
-union RegisterCustomerAccountResult = Success | MissingPasswordError | PasswordValidationError | NativeAuthStrategyError
+union SetCustomerForOrderResult =
+      Order
+    | AlreadyLoggedInError
+    | EmailAddressConflictError
+    | NoActiveOrderError
+union RegisterCustomerAccountResult =
+      Success
+    | MissingPasswordError
+    | PasswordValidationError
+    | NativeAuthStrategyError
 union RefreshCustomerVerificationResult = Success | NativeAuthStrategyError
 union VerifyCustomerAccountResult =
       CurrentUser
@@ -210,7 +220,11 @@ union VerifyCustomerAccountResult =
     | PasswordValidationError
     | PasswordAlreadySetError
     | NativeAuthStrategyError
-union UpdateCustomerPasswordResult = Success | InvalidCredentialsError | PasswordValidationError | NativeAuthStrategyError
+union UpdateCustomerPasswordResult =
+      Success
+    | InvalidCredentialsError
+    | PasswordValidationError
+    | NativeAuthStrategyError
 union RequestUpdateCustomerEmailAddressResult =
       Success
     | InvalidCredentialsError

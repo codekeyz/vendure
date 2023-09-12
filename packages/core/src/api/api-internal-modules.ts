@@ -82,6 +82,7 @@ import { ShopCustomerResolver } from './resolvers/shop/shop-customer.resolver';
 import { ShopEnvironmentResolver } from './resolvers/shop/shop-environment.resolver';
 import { ShopOrderResolver } from './resolvers/shop/shop-order.resolver';
 import { ShopProductsResolver } from './resolvers/shop/shop-products.resolver';
+import { ShopPromotionResolver } from './resolvers/shop/shop-promotion.resolver';
 
 const adminResolvers = [
     AdministratorResolver,
@@ -117,6 +118,7 @@ const shopResolvers = [
     ShopOrderResolver,
     ShopProductsResolver,
     ShopEnvironmentResolver,
+    ShopPromotionResolver,
 ];
 
 export const entityResolvers = [
